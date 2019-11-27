@@ -1,0 +1,3 @@
+include ':app', ':dkplayer-java', ':dkplayer-videocache', ':dkplayer-players'
+include 'dkplayer-players:ijk'
+include 'dkplayer-players:exo'

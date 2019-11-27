@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.dueeeke.videoplayer.player.VideoView
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="名称"
+        android:id="@+id/tv_file_name"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:gravity="center_vertical"
+        android:padding="3dp"
+        android:layout_height="wrap_content" />
+</FrameLayout>
