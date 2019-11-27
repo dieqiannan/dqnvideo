@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.dqndyvideo.R;
+import com.dqndyvideo.base.MyApplication;
 import com.dqndyvideo.util.DataUtil;
 import com.dqndyvideo.util.Utils;
 
@@ -41,7 +42,7 @@ public class SelectVideoOneActivity extends AppCompatActivity {
     private MyAdapter myAdapter;
     private TextView tvBtnType;
 
-    private boolean isDyType = false;
+    private boolean isDyType = MyApplication.isDyType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,19 +71,20 @@ public class SelectVideoOneActivity extends AppCompatActivity {
         tvBtnType = findViewById(R.id.tv_btn_type);
 
         //默认带进度版本
-        isDyType = false;
-        tvBtnType.setText("抖音/进度版  进度版");
+        setUI();
 
         tvBtnType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                if(isDyType){
                    isDyType =false;
-                   tvBtnType.setText("抖音/进度版  进度版");
+                  // tvBtnType.setText("抖音/进度版  进度版");
                }else {
                    isDyType =true;
-                   tvBtnType.setText("抖音/进度版  抖音版");
+                   //tvBtnType.setText("抖音/进度版  抖音版");
                }
+
+               setUI();
             }
         });
 
@@ -90,6 +92,15 @@ public class SelectVideoOneActivity extends AppCompatActivity {
         final ScannerAnsyTask task = new ScannerAnsyTask();
         task.execute();
 
+    }
+
+    private void setUI(){
+        if(isDyType){
+            tvBtnType.setText("抖音/进度版  抖音版");
+
+        }else {
+            tvBtnType.setText("抖音/进度版  进度版");
+        }
     }
 
     /**

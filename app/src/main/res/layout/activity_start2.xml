@@ -16,8 +16,22 @@
         android:background="#1ad7e1"
         android:gravity="center"
         android:padding="10dp"
-        android:text="视频"
-        android:id="@+id/tv_btn_video"
+        android:text="进度版"
+        android:id="@+id/tv_btn_video_progress"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_btn_video_dy"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:background="#1ad7e1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="抖音版"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
@@ -32,6 +46,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="音频"
+        android:visibility="gone"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 </LinearLayout>

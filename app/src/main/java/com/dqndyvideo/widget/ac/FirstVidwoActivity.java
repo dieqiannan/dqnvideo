@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 
 import com.dqndyvideo.R;
+import com.dqndyvideo.base.MyApplication;
 import com.dqndyvideo.util.DataUtil;
 import com.dqndyvideo.util.Utils;
 
@@ -48,7 +49,7 @@ public class FirstVidwoActivity extends AppCompatActivity {
     private TextView tvBtnType;
 
     //是否是抖音班播放器
-    private boolean isDyType = true;
+    private boolean isDyType = MyApplication.isDyType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,22 +120,35 @@ public class FirstVidwoActivity extends AppCompatActivity {
 
 
         //默认抖音版本
-        isDyType = true;
-        tvBtnType.setText("抖音/进度版  抖音版");
+        //isDyType = true;
+        //tvBtnType.setText("抖音/进度版  抖音版");
+
+        setUI();
 
         tvBtnType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(isDyType){
                     isDyType =false;
-                    tvBtnType.setText("抖音/进度版  进度版");
+                    //tvBtnType.setText("抖音/进度版  进度版");
                 }else {
                     isDyType =true;
-                    tvBtnType.setText("抖音/进度版  抖音版");
+                    //tvBtnType.setText("抖音/进度版  抖音版");
                 }
+
+                setUI();
             }
         });
 
+    }
+
+    private void setUI(){
+        if(isDyType){
+            tvBtnType.setText("抖音/进度版  抖音版");
+
+        }else {
+            tvBtnType.setText("抖音/进度版  进度版");
+        }
     }
 
     class MyAdapter extends RecyclerView.Adapter<MyHolder> {

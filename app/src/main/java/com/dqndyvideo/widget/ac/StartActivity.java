@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.dqndyvideo.R;
+import com.dqndyvideo.base.MyApplication;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -38,9 +39,21 @@ public class StartActivity extends AppCompatActivity {
             //权限通过了
         }
 
-        findViewById(R.id.tv_btn_video).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.tv_btn_video_progress).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                MyApplication.isDyType = false;
+                //音频
+                Intent intent = new Intent(StartActivity.this, FirstVidwoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.tv_btn_video_dy).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyApplication.isDyType = true;
                 //音频
                 Intent intent = new Intent(StartActivity.this, FirstVidwoActivity.class);
                 startActivity(intent);

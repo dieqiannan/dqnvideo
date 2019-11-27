@@ -2,6 +2,7 @@ package com.dqndyvideo.base;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.Handler;
 
 import com.dueeeke.videoplayer.BuildConfig;
 import com.dueeeke.videoplayer.ijk.IjkPlayerFactory;
@@ -17,10 +18,21 @@ public class MyApplication extends Application {
 
     private static MyApplication instance;
     public static Context context;
+    public static Handler mHanlder;
+    public static int mainThreadId;
+
+    //是否是抖音班播放器
+    public static boolean isDyType = true;
 
     @Override
     public void onCreate() {
         super.onCreate();
+
+        //初始化主线程的handler对象
+        mHanlder = new Handler();
+        //获取主线程的线程id
+        mainThreadId = android.os.Process.myTid();
+
         instance = this;
 //        if (LeakCanary.isInAnalyzerProcess(this)) {
 //            return;
